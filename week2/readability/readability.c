@@ -4,6 +4,10 @@
 #include <ctype.h>
 #include <math.h>
 
+
+    // created by : alisharify
+    //Do not copy code 
+    
 int main(void)
 {
     // Get input From User

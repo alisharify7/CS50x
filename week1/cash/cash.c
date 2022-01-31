@@ -7,6 +7,10 @@ int calculate_dimes(int cents);
 int calculate_nickels(int cents);
 int calculate_pennies(int cents);
 
+
+    // created by : alisharify
+    //Do not copy code 
+    
 int main(void)
 {
     // Ask how many cents the customer is owed
