@@ -5,7 +5,7 @@
 #include <ctype.h>
 
      // created by : alisharify
-    //Do not copy code 
+     //Do not copy code  
 
 int main(int argc,string argv[])
 {
