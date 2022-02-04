@@ -4,6 +4,9 @@
 #include <string.h>
 #include <ctype.h>
 
+     // created by : alisharify
+    //Do not copy code 
+
 int main(int argc,string argv[])
 {
     // For get 2 argument from User one For Run program and one for key
@@ -12,7 +15,7 @@ int main(int argc,string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    // with for loop goo to each element of argv and see is alpha or number
+    // with for loop go to each element of argv and see is alpha or number
     int len_argc = strlen(argv[1]);
     {
         for (int i = 0 ; i < len_argc ; i++)
@@ -37,24 +40,25 @@ int main(int argc,string argv[])
     // get input from user for ciphering
     string plain_text = get_string("Plain text: ");
 
-    //Final print
     printf("ciphertext: ");
     for (int i = 0,len = strlen(plain_text); i < len; i++)
     {
         char tmp = plain_text[i];
+        // check for alphabet
         if (isalpha(tmp))
         {
-            // check for alphabet
+            //check for uppercase
             if(isupper(tmp))
             {
                 printf("%c", (((tmp - 65) + key) % 26 )+ 65);
             }
-            // if is not upper definitely it's lower
+            // if is not upperCase definitely it's lower
             else
             {
                 printf("%c", (((tmp - 97) + key) % 26 )+ 97);
             }
         }
+        // if not alphabet so we print it
         else
         {
             printf("%c",tmp);
