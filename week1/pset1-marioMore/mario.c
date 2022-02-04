@@ -3,6 +3,9 @@
 
 int main(void)
 {
+    // created by : alisharify
+    //Do not copy code 
+    
     int user = 0;
     do
     {
@@ -15,16 +18,17 @@ int main(void)
     for (int i = 1 ; i <= user ; i++)
     {
 
-        // for print space
+        // for print each space
         for (int j = user; j > i ; j--)
         {
             printf(" ");
         }
-        // for print #
+        // for print each #
         for (int k = 0; k < i ; k++)
         {
             printf("#");
         }
+        //for print space beetwen #
         printf("  ");
         for (int s= 0 ; s < i ; s++)
         {
