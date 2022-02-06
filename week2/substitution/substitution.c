@@ -8,12 +8,13 @@
     
 int main(int argc, string argv[])
 {
-    // this is for check location of input
+    // this is for check location of user input
     char alphabet[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    // this array for get and added user input to this array
+    
+    // this array for get and added user key input to this array
     char key[26];
 
-    // check argument for get key
+    // check argument
     if (argc != 2)
     {
         printf("Usage: ./substitution key\n");
@@ -29,10 +30,11 @@ int main(int argc, string argv[])
         printf("Key must contain 26 characters.\n");
         return 1;
     }
+
     // check all of 26 char is alphabet and not dublicate
     else if (len_key == 26)
     {
-        // tmpp char is for chaek one step back and see they are same or not
+        // tmpp char is for check one step by one step key and looking for duplicate
         char tmpp = 'a';
         // for check each house of key and see if not alphabet or it has
         for (int i = 0 ; i < len_key; i++)
@@ -55,9 +57,12 @@ int main(int argc, string argv[])
             }
         }
     }
-
+    
+    // get input from user
     string user = get_string("PlainText: ");
     printf("ciphertext: ");
+
+    // Got to Each of char of user string
     for (int i = 0, n = strlen(user); i < n; i++)
     {
         char tmp = user[i];
@@ -71,6 +76,7 @@ int main(int argc, string argv[])
                 }
             }
         }
+        // in here check for lowercase
         else if (islower(tmp))
         {
             for (int s = 0 ; s < 26 ; s++)
@@ -87,5 +93,6 @@ int main(int argc, string argv[])
             printf("%c", user[i]);
         }
     }
+    //print for newline
     printf("\n");
 }
