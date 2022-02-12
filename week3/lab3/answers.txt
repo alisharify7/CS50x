@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: in sorted list time is short but is reverse list time is so long
+
+sort2 uses: Merge Sort
+
+How do you know?: because omega and big o in three case is same and less than n
+
+sort3 uses: Selection Sort
+
+How do you know?: because in 3 case is time in omega and big o is same and not different between each one
