@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 
+    // created by : alisharify
+    //Do not copy code 
+    
+
 // Max number of candidates
 #define MAX 9
 
