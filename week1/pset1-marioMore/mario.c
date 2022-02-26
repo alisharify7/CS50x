@@ -6,6 +6,7 @@ int main(void)
     // created by : alisharify
     //Do not copy code 
     
+    // for get input from user
     int user = 0;
     do
     {
@@ -13,6 +14,7 @@ int main(void)
     }
     while (user > 8 || user < 1);
     //printf("user is ---> %i\n", user);
+
 
 
     for (int i = 1 ; i <= user ; i++)
@@ -28,12 +30,13 @@ int main(void)
         {
             printf("#");
         }
-        //for print space beetwen #
+        //for print space between #
         printf("  ");
         for (int s= 0 ; s < i ; s++)
         {
             printf("#");
         }
+        // for new line
         printf("\n");
     }
 }

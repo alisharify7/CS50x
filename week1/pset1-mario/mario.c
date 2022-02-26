@@ -6,6 +6,8 @@ int main(void)
     // created by : alisharify
     //Do not copy code 
     
+    //with do while loop get input from user 
+    // user most between 1 to 8
     int user = 0;
     do
     {
@@ -28,6 +30,7 @@ int main(void)
         {
             printf("#");
         }
+        //for print new line
         printf("\n");
     }
 }
