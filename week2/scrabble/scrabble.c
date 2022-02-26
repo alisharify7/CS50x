@@ -44,6 +44,9 @@ int compute_score(string word)
     // TODO: Compute and return score for string
     int sum = 0;
     int lenght = strlen(word);
+
+    //with this for loop calculating 
+    //points of word
     for (int i = 0 ; i < lenght; i++)
     {
         for (int s = 0 ; s < 26; s++)
