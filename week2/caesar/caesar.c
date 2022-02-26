@@ -31,6 +31,7 @@ int main(int argc, string argv[])
     // convert char to int
     int key = atoi(argv[1]);
 
+    //check key is valide oi not!
     if (key == 0)
     {
         printf("Usage: ./caesar key\n");
@@ -64,5 +65,6 @@ int main(int argc, string argv[])
             printf("%c", tmp);
         }
     }
+    //printf new line
     printf("\n");
 }
