@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
         printf("Usage Error: ./program-name <filename>\n");
         return 1;
     }
+    
     // open user input file
     FILE *input = fopen(argv[1], "r");
     if (input == NULL)
@@ -23,8 +24,9 @@ int main(int argc, char *argv[])
         printf("Usage Error: Cant open < %s > file\n", argv[1]);
         return 1;
     }
-    /* 0xff 0xd8 0xff
-    0xe0 to 0xef */
+    
+    /* first three byte of jpg picture is --> 0xff 0xd8 0xff
+    AND 0xe0 to 0xef */
     byte buffer_pic[512];
 
     //counter for name of file
@@ -64,7 +66,7 @@ int main(int argc, char *argv[])
             jpg_one = 0;
 
             //generate file name
-            char filename[7];
+            char filename[255];
             sprintf(filename, "%03i.jpg", counter);
             counter++;
 
