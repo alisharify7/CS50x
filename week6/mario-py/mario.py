@@ -1,7 +1,5 @@
 import cs50
 
-
-# main function
 def main():
     # get Height from user
     h = get_int()
