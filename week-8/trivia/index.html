@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <link rel="stylesheet" href="./style.css">
+        <script>
+            function incorrect(){
+                document.getElementById('feedback').innerHTML = "inCorrect";
+
+            }
+            // TODO: Add code to check answers to questions
+            function one(){
+                document.getElementById('one').style.backgroundColor ="green";
+                document.getElementById('feedback').innerHTML = "Correct";
+            }
+            function two(){
+                document.getElementById('two').style.backgroundColor ="red";
+                incorrect();
+            }
+            function three(){
+                document.getElementById('three').style.backgroundColor ="red";
+                incorrect();
+            }
+            function four(){
+                document.getElementById('four').style.backgroundColor ="red";
+                incorrect();
+            }
+            function five(){
+                document.getElementById('five').style.backgroundColor ="red";
+                incorrect();
+            }
+            function check(){
+                let input = document.getElementById('input').value;
+                if(input === 'windows'){
+                    document.getElementById('show').innerHTML = 'Correct';
+                    document.getElementById('input').style.backgroundColor ="green";
+                }
+                else{
+                    document.getElementById('show').innerHTML = 'incorrect';
+                    document.getElementById('input').style.backgroundColor ="red";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>whats is the appromiximate ratop of people to sheep in New Zealand?</h3>
+                <h4 id="feedback"></h4>
+                <button onclick="one();" id="one" >6 people per 1 sheep</button>
+                <button onclick="two();" id="two" >3 people per 1 sheep</button>
+                <button onclick="three();" id="three" >1 person per 1 sheep</button>
+                <button onclick="four();" id="four" >1 person per 3 sheep</button>
+                <button onclick="five();" id="five" >1 person per 6 sheep</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h4>whats is sucks? a little help wind***s</h4>
+                <h3 id="show"></h3>
+                <form onsubmit="check();return false;">
+                    <input type="text" id="input">
+                    <input type="submit" value="cheack">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
