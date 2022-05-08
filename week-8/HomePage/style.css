@@ -434,64 +434,7 @@ section {
     margin-top: 1rem;
 
   }
-  /* .nav-bar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #4b4b4b;
-    height: auto;
-  
-  }
-  .nav-list{
-      flex-direction: column;
-  }
 
-  .hamburger {
-    width: 3rem;
-    height: 3rem;
-    border: 3px solid #222222;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    align-self: flex-end;
-    margin: 1rem;
-  }
-  .bar{
-    height: 2px;
-    width: 2rem;
-    position: relative;
-    background-color: #222222;
-  }
-  .bar::after, .bar::before{
-      content:'';
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background-color: #222222;
-      left: 0;
-  }
-  .bar::after{
-      top: 8px;
-  }
-  .bar::before{
-      bottom:8px
-  }
-  .nav-list ul {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .nav-list ul li a {
-    color: #fff;
-    font-size: 1.5rem;
-    line-height: 2;
-  }  */
 }
 @media (max-width: 600px) {
   .nav-bar {
