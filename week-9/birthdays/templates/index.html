@@ -38,8 +38,8 @@
                         <!-- TODO: Loop through the database entries to display them in this table -->
                         {% for name in names %}
                         <tr>
-                            <td>{{name[0]}}</td>
-                            <td>{{name[1]}}</td>
+                            <td>{{name.name}}</td>
+                            <td>{{name.month}}/{{name.day}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
