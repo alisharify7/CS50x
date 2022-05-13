@@ -10,11 +10,18 @@
         <div class="header">
             <h1>Birthdays</h1>
         </div>
+
         <div class="container">
             <div class="section">
 
                 <h2>Add a Birthday</h2>
                 <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <form method="post" action="/">
+                    <input name="Name" type="text" placeholder="Name">
+                    <input name="Month" type="text" placeholder="Month">
+                    <input name="Day" type="text" placeholder="Day">
+                    <button>Add Birthday</button>
+                </form>
             </div>
 
             <div class="section">
@@ -29,6 +36,12 @@
                     </thead>
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for name in names %}
+                        <tr>
+                            <td>{{name[0]}}</td>
+                            <td>{{name[1]}}</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
