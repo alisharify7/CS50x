@@ -2,6 +2,13 @@
 
 > ## solve All Cs50  problem Sets
 
+How to clone :
+     
+     git clone https://github.com/alisharifyy/Solve-All-CS50.git
+     
+
+
+
 - week to week uploaded in my github
 
 - Do not Copy Code  !
