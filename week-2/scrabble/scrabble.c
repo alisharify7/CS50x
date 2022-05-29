@@ -48,15 +48,20 @@ int compute_score(string word)
     int sum = 0;
 
     // TODO: Compute and return score for string
-
-
+    // Iterate over all Word String
     for(int i = 0,len = strlen(word); i < len; i++)
-    {
+    {   
         char temp = word[i];
+        // check if temp is alphabetic  or Not
         if (isalpha(temp))
-        {
+        {   
+            // Convert temp to uppercase
             temp = toupper(temp);
+            
+            // find location of temp is points array
             int loc = 'A' - temp;
+            
+            // add points [loc] element to sum varable
             sum += POINTS[loc];
         }
     }
