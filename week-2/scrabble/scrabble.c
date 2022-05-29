@@ -61,15 +61,16 @@ int compute_score(string word)
             // find location of temp is points array
             int loc = 'A' - temp;
             
-            // add points [loc] element to sum varable
+            // add points [loc] element to sum variable
             sum += POINTS[loc];
         }
     }
+    // Return sum of word 
     return sum;
 }
 
 
-// another way
+// another way  to Solve this Problem
 
 //#include <ctype.h>
 //#include <cs50.h>
