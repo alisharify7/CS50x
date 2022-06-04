@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+
+<div class="my-auto">
+<table class="table ">
+    <thead>
+      <tr>
+        <th class="text-start" scope="col">Symbol</th>
+        <th class="text-start" scope="col">Name</th>
+        <th class="text-end" scope="col">Shares</th>
+        <th class="text-end" scope="col">Price</th>
+        <th  class="text-end" scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if value %}
+        {% for each in value %}
+        <tr>
+            <td >{{each['symbol']}}</td>
+            <td>{{each['name']}}</td>
+            <td>{{each['shares']}}</td>
+            <td>{{each['price']}}</td>
+            <td>{{each['total']}}</td>
+          </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td  class=" fw-bold border-0" colspan="4" style="text-align:end;" >cash</td>
+        <td  class="border-0" colspan="5">{{cash_place}}</td>
+      </tr>
+      <tr class="border-0">
+        <td  class=" fw-bold border-0 col" colspan="4"
+         style="text-align:end;" >Total</td>
+        <td  class="border-0" colspan="5">{{total}}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+{% endblock %}
