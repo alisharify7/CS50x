@@ -5,6 +5,7 @@ from datetime import datetime
 
 from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect,jsonify, render_template, request, session
+import flask
 from flask_session import Session
 from tempfile import mkdtemp
 import requests
@@ -180,6 +181,9 @@ def buy():
 def history():
     """Show history of transactions"""
     value = db.execute("SELECT * FROM history WHERE user_id = ?",session['user_id'])
+    for i,v in enumerate(value):
+        value[i]['price'] = f"${value[i]['price']:,.2f}".format(value[i]['price'])
+
     return render_template("history.html",value=value)
 
 
@@ -332,6 +336,12 @@ def sell():
         symbol_input = request.form.get("symbol")
         shares_input = request.form.get("shares")
         
+        if not symbol_input:
+            return apology("symbol is empty")
+        if not shares_input:
+            return apology("shares is empty")
+
+
         # check to symbol is correct
         temp = lookup(symbol_input)
         if not temp or temp == None:
@@ -414,5 +424,5 @@ def sell():
             VALUES(? ,? ,? ,? ,?)
             """,session['user_id'],lookup_now['symbol'],
                 his_share,lookup_now['price'],datetime.now())
-
+            flash("sold")
             return redirect("/")
