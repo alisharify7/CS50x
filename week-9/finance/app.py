@@ -161,6 +161,13 @@ def buy():
                     UPDATE trans SET shares = ? WHERE user_id = ? AND symbol = ?
                     """,now_shares_user, session['user_id'],symbol)
                     flash("Bought")
+
+                    # update history
+                    db.execute("""
+                    INSERT INTO history (user_id,symbol,shares,price,time)
+                    VALUES(? ,? ,? ,? ,?)
+                    """,session['user_id'],symbol_call['symbol'],
+                        shares,symbol_call['price'],datetime.now())
                     return redirect('/')
     
             else:
@@ -172,7 +179,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    return apology("TODO")
+    value = db.execute("SELECT * FROM history WHERE user_id = ?",session['user_id'])
+    return render_template("history.html",value=value)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -300,23 +308,23 @@ def sell():
     if request.method == "GET":
 
         # get all symbol of user
-        res = db.execute("""SELECT symbol,shares FROM trans WHERE
+        db_user_shares = db.execute("""SELECT symbol,SUM(shares) AS shares FROM trans WHERE
          user_id = ? """,session["user_id"])
         
+        # list of name of all symbol user have
         symbol = []
+        # list of all user symbol name and number of shares user have
         user_shares = {}
 
-        for i,v in enumerate(res):
+        for i,v in enumerate(db_user_shares):
             temp = v['symbol']
             if temp not in symbol:
                 symbol.append(temp)
             
             if temp in user_shares:
                 user_shares[temp] += v['shares']
-                pass
             else:
                 user_shares[temp] = v['shares']
-
         return render_template("sell.html",value=symbol)
 
     if request.method == "POST":
@@ -332,25 +340,79 @@ def sell():
         try:
             shares_input = int(shares_input)
         except ValueError:
-            return apology("Share must be positive number")
+            return apology("Share must be Number")
 
         if shares_input < 0:
             return apology("Share must be positive number")
             
         # select share of user 
-        res = db.execute("""
+        db_user_shares = db.execute("""
         SELECT SUM(shares) AS sum FROM trans WHERE symbol = ? AND user_id =?
          """,symbol_input,session['user_id'])
-        res = res[0]['sum']
+        db_user_shares = db_user_shares[0]['sum']
 
-        if shares_input > res:
+        # check if user change symbol name
+        if not db_user_shares:
+            return apology("Invalid symbol")
+
+
+        if shares_input > db_user_shares:
             return apology("Not enough shares")
         else:
-            # update user from data base
-            price_to_pay =  temp['price'] * shares_input
-            db.execute("SELECT shares,")
+            # calculate how many cash we should update for user
+            lookup_now = lookup(symbol_input)
             
+            if not lookup_now:
+                return apology("invalid symbol")
             
-
-
+            cr_price_now = lookup_now['price']
         
+            have_update_db = cr_price_now * shares_input
+            # update cash of user
+            # first get correct not user cash
+            cash_in_db = db.execute("""
+            SELECT cash FROM users WHERE id = ?
+            """,session['user_id'])
+            cash_in_db =  cash_in_db[0]['cash']
+
+            # get sum of have to pay and correct user cash
+            cash_in_db += have_update_db 
+
+            # update user cash
+            db.execute("""
+            update users SET cash = ? WHERE id = ?
+            """,cash_in_db,session['user_id'])
+
+            # delete user shares
+            all_shares = db.execute(""" SELECT SUM(shares) as sum FROM trans WHERE user_id = ? AND symbol = ?
+             """,session['user_id'],symbol_input)
+            
+            # delete all rows
+            db.execute("DELETE FROM trans WHERE user_id = ? and symbol = ?",session['user_id'],symbol_input)
+
+            NOW_TIME = datetime.now()
+            # calculate user new shares
+            db_user_shares -= shares_input
+
+            # create new row
+            db.execute("""INSERT INTO trans 
+            (user_id,symbol,name,shares,price,total,time)
+            VALUES (?,?,?,?,?,?,?)""",
+            session['user_id'],lookup_now['symbol'],lookup_now['name'],
+            db_user_shares,lookup_now['price'],
+            lookup_now['price']*db_user_shares,NOW_TIME)
+            
+            # check is any rows have 0 shares delete it 
+            db.execute("DELETE FROM trans WHERE shares = ?",0)
+
+            # update history
+            his_share = "-" + str(shares_input)
+            his_share = int(his_share)
+
+            db.execute("""
+            INSERT INTO history (user_id,symbol,shares,price,time)
+            VALUES(? ,? ,? ,? ,?)
+            """,session['user_id'],lookup_now['symbol'],
+                his_share,lookup_now['price'],datetime.now())
+
+            return redirect("/")

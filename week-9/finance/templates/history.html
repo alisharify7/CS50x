@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+<div class="my-auto">
+<table class="table ">
+    <thead>
+      <tr>
+        <th class="text-start" scope="col">Symbol</th>
+        <th class="text-end" scope="col">Shares</th>
+        <th class="text-end" scope="col">Price</th>
+        <th  class="text-end" scope="col">Transacted</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if value %}
+        {% for each in value %}
+        <tr>
+            <td class="text-start">{{each['symbol']}}</td>
+            <td style="text-align:end ;" >{{each['shares']}}</td>
+            <td style="text-align:end ;" >{{each['price']}}</td>
+            <td class="text-end">{{each['time']}}</td>
+          </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+
+  </table>
+</div>
+{% endblock %}
