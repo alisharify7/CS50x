@@ -1,10 +1,7 @@
-from multiprocessing.sharedctypes import Value
 import os
-
-from datetime import datetime
-
-from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect,jsonify, render_template, request, session
+from datetime import datetime
+from cs50 import SQL
 import flask
 from flask_session import Session
 from tempfile import mkdtemp
