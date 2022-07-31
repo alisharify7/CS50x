@@ -1,6 +1,6 @@
 sort1 uses: Bubble Sort
 
-How do you know?: in sorted list time is short but is reverse list time is so long
+How do you know?: in sorted list time is short but is reverse list time is long
 
 sort2 uses: Merge Sort
 
