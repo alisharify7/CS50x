@@ -35,4 +35,4 @@ How to clone :
 
 
 # Certificate:
-<img src="https://certificates.cs50.io/c05e6d09-ecbf-4a3d-a0c5-ef8dee582935.png?size=letter" alt="CS50 Certificate" >
+<img src="https://github.com/alisharify7/CS50x/blob/master/CS50x.png" alt="CS50 Certificate" >
