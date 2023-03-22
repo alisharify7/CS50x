@@ -16,12 +16,11 @@ int main(int argc, string argv[])
         return 1;
     }
     // with for loop go to each element of argv and see is alpha or number
-    int len_argc = strlen(argv[1]);
     {
-        for (int i = 0 ; i < len_argc ; i++)
+        for (int i = 0, len_argc = strlen(argv[1]) ; i < len_argc ; i++)
         {
             char tmp = argv[1][i];
-            if (isalpha(tmp))
+            if (!isdigit(tmp))
             {
                 printf("Usage: ./caesar key\n");
                 return 1;
@@ -31,12 +30,6 @@ int main(int argc, string argv[])
     // convert char to int
     int key = atoi(argv[1]);
 
-    //check key is valide oi not!
-    if (key == 0)
-    {
-        printf("Usage: ./caesar key\n");
-        return 2;
-    }
 
     // get input from user for ciphering
     string plain_text = get_string("Plain text: ");
