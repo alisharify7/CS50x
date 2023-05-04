@@ -1,3 +1,9 @@
+<p>
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/alisharify7/CS50x">
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/alisharify7/CS50x">
+</p>
+
+
 # CS50 Problem sets
 
 > ## solve All Cs50  problem Sets
