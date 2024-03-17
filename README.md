@@ -5,7 +5,6 @@
 
 
 # CS50 Problem sets
-
 > ## solve All Cs50  problem Sets
 
 How to clone :
@@ -13,11 +12,6 @@ How to clone :
      git clone https://github.com/alisharifyy/Solve-All-CS50.git
      
 
-
-
-- week to week uploaded in my github
-
-- Do not Copy Code  !
 
 ### All Weeks 
 <a href='./week-1' >Week 1</a>
