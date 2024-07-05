@@ -5,7 +5,7 @@
 
 
 # CS50 Problem sets
-> ## solve All Cs50  problem Sets
+> ## solve all CS50 x problems
 
 How to clone :
      
