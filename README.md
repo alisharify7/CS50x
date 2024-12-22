@@ -33,6 +33,11 @@ How to clone :
 <a href='./week-9' >Week 9</a>
 
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=alisharify7/CS50x&type=Date)](https://star-history.com/#alisharify7/CS50x&Date)
+
+
 
 # Certificate:
 <img src="https://github.com/alisharify7/CS50x/blob/master/CS50x.png" alt="CS50 Certificate" >
